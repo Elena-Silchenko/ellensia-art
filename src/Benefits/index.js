@@ -1,9 +1,9 @@
 function Benefit({ title, description }) {
   return (
-    <div className="card" style={{ flexGrow: '1', width: '10em', maxWidth: '20em' }}>
+    <div className="card">
       <div className="card-icon" />
 
-      <h2 style={{ marginBottom: '1em' }}>
+      <h2 className="mb-3">
         {title}
       </h2>
 
@@ -39,8 +39,8 @@ const BenefintList = [
 
 export default function Benefints() {
   return (
-    <div className="benefits" style={{ background: '#fcf2f3', padding: '2em' }}>
-      <div style={{ marginBottom: '2em', padding: '0 1em' }}>
+    <div className="benefits p-4">
+      <div className="mb-5" style={{ padding: '0 1em' }}>
         <h1>
           Преимущества портрета созданного в цифровой живописи
         </h1>

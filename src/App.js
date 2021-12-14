@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
-import './index.css'
+import './index.scss'
 
 import ImagePhoto from './photo.png'
 import ImageLeaves from './leaves.png'
@@ -16,9 +16,9 @@ import Prices from './Prices'
 function Header() {
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-        <div style={{ width: '40em', flexGrow: '1', height: '25em', backgroundColor: '#fcf2f3', position: 'relative' }}>
-          <nav style={{ position: 'absolute', right: '0', zIndex: '1' }}>
+      <div className="d-flex flex-row-reverse flex-wrap">
+        <div className="menu flex-grow-1 position-relative">
+          <nav className="p-3">
             <ul>
               <li>
                 <a href="#portfolio" >Портфолио</a>
@@ -38,22 +38,22 @@ function Header() {
             </ul>
           </nav>
 
-          <img src={ImagePhoto} alt="" style={{ width: '50%', position: 'absolute', left: '-5em', top: '8em' }} />
-          <img src={ImageLeaves} alt="" style={{ width: '50%', position: 'absolute', right: '-1em', top: '0', opacity: '.3' }} />
-          <img src={ImageBrush} alt="" style={{ width: '25%', position: 'absolute', left: '15em', top: '22em' }} />
+          <img src={ImagePhoto} className="photo" alt="" />
+          <img src={ImageLeaves} className="leaves" alt="" />
+          <img src={ImageBrush} className="brush" alt="" />
         </div>
 
-        <div style={{ width: '25em', flexGrow: '1' }}>
+        <div className="advert flex-grow-1">
           <div>
-            <img src={Logo} alt="" style={{ height: '150px' }} />
+            <img src={Logo} className="logo" alt="" />
           </div>
 
-          <div style={{ padding: '2em 6em 1em 2em' }}>
+          <div className="advert-description">
             <div>
               Создам качественный цифровой портрет или иллюстрацию с капелькой волшебства.
             </div>
 
-            <ul style={{ listStyleType: 'none', paddingInlineStart: '.5em', marginBlockStart: '.5em', marginBlockEnd: '.5em' }}>
+            <ul>
               <li>
                 ✎ Это замечательный\чудесный подарок не только себе, но и близким, который обязательно удивит и будет радовать долгое время\всю жизнь.
               </li>
@@ -75,11 +75,11 @@ function Header() {
             </ul>
           </div>
 
-          <div style={{ position: 'relative', textAlign: 'right' }}>
-            <img src={ImageLeaves} alt="" style={{ zIndex: '-1', position: 'absolute', right: '0', top: '2.4em', transform: 'rotate(80deg)', width: '10em', marginTop: '-5em' }} />
+          <div className="button-order-wrapper">
+            <img src={ImageLeaves} alt="" />
 
             <div style={{ paddingBottom: '8em' }}>
-              <a href="#price" className="btn btn-default" style={{ cursor: 'pointer', background: '#e1ccc6', color: '#fff', fontSize: '2em', padding: '.1em 1em', fontWeight: '300', outline: 'none', border: 'none' }}>
+              <a href="#price" className="btn btn-default">
                 Заказать
               </a>
             </div>
@@ -93,21 +93,21 @@ function Header() {
 function App() {
   return (
     <>
-      <div style={{ width: '90%', margin: 'auto' }}>
+      <div className="header">
         <Header />
       </div>
 
       <Benefints />
 
-      <div style={{ width: '90%', margin: 'auto' }}>
-        <div style={{ padding: '2em 0' }}>
-          <div style={{ margin: '2em 0', padding: '0 1em' }}>
+      <div className="m-auto order">
+        <div className="order-description">
+          <div className="oreder-title">
             <h1>
               Что необходимо для оформления заказа
             </h1>
           </div>
 
-          <ul style={{ listStyleType: 'none', paddingInlineStart: '.5em', marginBlockStart: '.5em', marginBlockEnd: '.5em' }}>
+          <ul>
             <li>
               - Фотография хорошего качества, где человек узнаваем. Если сложно определиться с фотографией, можно прислать несколько вариантов и я вам помогу выбрать самый удачный вариант.
             </li>
@@ -134,33 +134,33 @@ function App() {
 
         <Prices />
 
-        <div id="about" style={{ marginBottom: '3em' }}>
-          <div style={{ margin: '2em 0', padding: '0 1em' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: '5em', borderBottom: '2px solid #ececec', marginRight: '1em' }}></div>
+        <div id="about" className="mb-5em">
+          <div className="about-title-wrapper">
+            <div className="about-title d-flex">
+              <div className="about-line-left me-2"></div>
               <h1>Обо мне</h1>
-              <div style={{ width: '5em', borderBottom: '2px solid #ececec', marginLeft: '1em' }}></div>
+              <div className="about-line-right ms-2"></div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', margin: 'auto', flexGrow: 1, maxWidth: '60em' }}>
-            <div style={{ width: '20em', flexGrow: 1, marginRight: '3em' }}>
-              <div style={{ marginBottom: '.5em' }}>
+          <div className="about-description d-flex m-auto">
+            <div className="about-description-wrapper me-4 flex-grow-1">
+              <div className="mb-1">
                 Меня зовут Елена и я художник-иллюстратор. Работаю в этой сфере уже около 7 лет. Я маньяк своей работы и писать портреты людей это моя большая страсть. Для меня это видеть красоту людей и раскрывать через портрет их внутреннюю энергию. Когда я пишу портрет, мне кажется, что творится волшебство. Обожаю создавать уникальные иллюстрации, которые зарождаются в моей голове! Постоянно нахожусь в процессе развития, не сижу на месте и улучшаю свои навыки.
               </div>
-              <div style={{ marginBottom: '.5em' }}>
+              <div className="mb-1">
                 Мои работы покупают по всему миру: Япония, США, Франция, Нидерланды, Англия, Китай, Украина, Россия и другие.
               </div>
-              <div style={{ marginBottom: '.5em' }}>
+              <div className="mb-1">
                 Мои навыки: Adobe Photoshop, Adobe Illustrator и Adobe InDesign
               </div>
-              <div style={{ marginBottom: '.5em' }}>
+              <div className="mb-1">
                 Моя страсть: цифровая живопись
               </div>
-              <div style={{ marginBottom: '.5em' }}>
+              <div className="mb-1">
                 Надеюсь, что моя фантазия будет полезна вам. :)
               </div>
-              <div style={{ marginBottom: '.5em' }}>
+              <div className="mb-1">
                 Сделайте со мной шаг в мир волшебства!
               </div>
             </div>
@@ -171,8 +171,8 @@ function App() {
           </div>
         </div>
 
-        <div id="contact" style={{ marginBottom: '1em', display: 'flex' }}>
-          <div style={{ flexGrow: 1 }}></div>
+        <div id="contact" className="mb-2 d-flex">
+          <div className="flex-grow-1"></div>
 
           <div>
             <div>
@@ -180,11 +180,11 @@ function App() {
             </div>
           </div>
 
-          <div style={{ flexGrow: 1 }}></div>
+          <div className="flex-grow-1"></div>
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', marginBottom: '.5em' }}>
+      <div className="mb-1 text-center">
         Copyright © 2020 Ellensia-Art.com
       </div>
     </>

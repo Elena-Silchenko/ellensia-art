@@ -7,13 +7,13 @@ import Gallery6 from './photo_2020-05-10_17-21-35.jpg'
 
 function PortfolioItem({ image, title, description }) {
   return (
-    <div className="portfolio-card" style={{ width: '20em', marginRight: '30px', marginBottom: '2em' }}>
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <img src={image} alt="" style={{ width: '100%', borderRadius: '1em' }} />
+    <div className="portfolio-card">
+      <div>
+        <img src={image} alt="" />
 
-        <div className="portfolio-description" style={{ position: 'absolute', background: '#fff', borderRadius: '.3em', padding: '.5em 1em', left: '1em', right: '1em' }}>
-          <div style={{ marginBottom: '.2em' }}>
-            <div style={{ fontSize: '1em', fontWeight: '900' }}>
+        <div className="portfolio-description">
+          <div className="mb-1">
+            <div className="portfolio-title">
               {title}
             </div>
           </div>
