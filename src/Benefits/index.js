@@ -1,11 +1,11 @@
 function Benefit({ title, description }) {
   return (
-    <div className="card">
+    <div className="card me-4">
       <div className="card-icon" />
 
-      <h2 className="mb-3">
+      <h5 className="mb-3">
         {title}
-      </h2>
+      </h5>
 
       <div>
         {description}

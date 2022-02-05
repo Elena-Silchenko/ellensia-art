@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '@fortawesome/fontawesome-free/css/all.min.css'
 import './index.scss'
 
 import ImagePhoto from './photo.png'
@@ -12,6 +10,7 @@ import MyPhoto from './photo_2020-05-10_17-44-59.jpg'
 import Benefints from './Benefits'
 import Portfolio from './Portfolio'
 import Prices from './Prices'
+import GoUp from './GoUp'
 
 function Header() {
   return (
@@ -144,7 +143,7 @@ function App() {
           </div>
 
           <div className="about-description d-flex m-auto">
-            <div className="about-description-wrapper me-4 flex-grow-1">
+            <div className="about-description-wrapper me-4 mb-4 flex-grow-1">
               <div className="mb-1">
                 Меня зовут Елена и я художник-иллюстратор. Работаю в этой сфере уже около 7 лет. Я маньяк своей работы и писать портреты людей это моя большая страсть. Для меня это видеть красоту людей и раскрывать через портрет их внутреннюю энергию. Когда я пишу портрет, мне кажется, что творится волшебство. Обожаю создавать уникальные иллюстрации, которые зарождаются в моей голове! Постоянно нахожусь в процессе развития, не сижу на месте и улучшаю свои навыки.
               </div>
@@ -187,6 +186,8 @@ function App() {
       <div className="mb-1 text-center">
         Copyright © 2020 Ellensia-Art.com
       </div>
+
+      <GoUp />
     </>
   )
 }

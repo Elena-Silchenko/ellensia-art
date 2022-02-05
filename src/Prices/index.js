@@ -22,9 +22,9 @@ function PriceItem({ title, list }) {
     <div className="card" style={{ width: '15em', maxWidth: '25em', flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
       <div className="card-icon"></div>
 
-      <h2 style={{ marginBottom: '1em' }}>
+      <h5 style={{ marginBottom: '1em' }}>
         {title}
-      </h2>
+      </h5>
 
       <div style={{ marginBottom: '2em', textAlign: 'left', flexGrow: '1' }}>
         <ul style={{ listStyleType: 'none', paddingInlineStart: '.5em', marginBlockStart: '.5em', marginBlockEnd: '.5em' }}>
