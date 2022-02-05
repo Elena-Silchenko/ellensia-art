@@ -12,9 +12,19 @@
   src: url('./fonts/pacifico-regular.ttf') format('truetype');
 }
 
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 80%;
+  }
+}
+
 body {
   font-family: lato, sans-serif;
   font-weight: 300;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 h1 {

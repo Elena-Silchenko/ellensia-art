@@ -41,7 +41,7 @@ const PortfolioItems = [
   {
     image: Gallery3,
     title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    description: 'Lorem ipsum dolor sit amet, consTitleectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
   },  
   { 
     image: Gallery4,
