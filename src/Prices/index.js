@@ -68,7 +68,7 @@ function PriceItem({ title, list }) {
               <Col sm="6">
                 <div className="mb-2">
                   <label>
-                    <span className="btn btn-primary pointer" tabIndex="0">
+                    <span className="button-form btn pointer" tabIndex="0" >
                       Загрузить фото
                     </span>
                     <input type="file" accept="image/*" className="d-none" onChange={(e) => imageSelected(e.target.files[0])} />
@@ -97,7 +97,7 @@ function PriceItem({ title, list }) {
           </Form>      
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button className="button-form" onClick={handleClose} >
             Отправить
           </Button>
         </Modal.Footer>

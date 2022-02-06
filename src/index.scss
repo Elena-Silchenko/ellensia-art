@@ -313,6 +313,19 @@ h1 {
   }
 }
 
+.button-form {
+  background-color: #e1ccc6; 
+  border: none;
+  color: #fff;
+
+  &:hover {
+    background-color: #8ce6dd;
+    border: none;
+    color: #fff;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 20%);
+  }
+}
+
 .btn-go-up {
   position: fixed;
   right: 3em;
