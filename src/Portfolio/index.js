@@ -30,33 +30,33 @@ function PortfolioItem({ image, title, description }) {
 const PortfolioItems = [
   {
     image: Gallery1,
-    title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    title: 'Черно-белая Живопись',
+    description: 'Портрет выполнен с помощью сухих техник. Уголь. Подойдет к любому интерьеру, а черно-белый никогда не выходит из моды и подчеркнет глаза'
   },
   {
     image: Gallery2,
-    title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    title: 'Живопись',
+    description: 'Пастель. Нежная и утонченная техника'
   },
   {
     image: Gallery3,
-    title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consTitleectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    title: 'Живопись',
+    description: 'Масло. Сделает любой портрет как из средневековых сказок'
   },  
   { 
     image: Gallery4,
-    title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    title: 'Живопись',
+    description: 'Крупные мазки. Современное искусство заполняет наши дома и такой портрет однозначно привлечет внимание ваших гостей'
   },
   { 
     image: Gallery5,
-    title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    title: 'Графика цветная',
+    description: 'В стиле фешн и легкости, будто из модного журнала'
   },
   {
     image: Gallery6,
-    title: 'Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem id libero rutrum ornare a in enim.'
+    title: 'Графика черно-белая',
+    description: 'Это больше, чем просто скетч, не смотря на свою простоту передает энергию и волшебство'
   }
 ]
 

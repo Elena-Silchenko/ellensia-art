@@ -108,6 +108,11 @@ h1 {
     .advert-description {
       padding: 2em 6em 1em 2em;
 
+      .advert-description-title {
+        font-family: "Bad Script", cursive;
+        font-size: 1.3em;
+      }
+
       ul {
         list-style-type: none;
         padding-inline-start: .5em;
@@ -142,6 +147,7 @@ h1 {
 
         &:hover {
           box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          background-color: #8ce6dd;
         }
       }
     }
@@ -309,10 +315,10 @@ h1 {
 
 .btn-go-up {
   position: fixed;
-  right: 2em;
-  bottom: 2em;
-  width: 2em;
-  height: 2em;
+  right: 3em;
+  bottom: 3em;
+  width: 3em;
+  height: 3em;
   background: #fff;
   border-radius: .5em;
   color: #8ce6dd;

@@ -17,8 +17,8 @@ export default function GoUp() {
   return (
     <>
       {visible && (
-        <div class="btn-go-up" onClick={() => window.scroll(0, 0)}>
-          <i class="fas fa-angle-up" />
+        <div className="btn-go-up" onClick={() => window.scroll(0, 0)}>
+          <i className="fas fa-angle-up" />
         </div>
       )}
     </>
