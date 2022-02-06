@@ -1,5 +1,3 @@
-import './index.scss'
-
 import ImagePhoto from './photo.png'
 import ImageLeaves from './leaves.png'
 import Logo from './logo.png'
