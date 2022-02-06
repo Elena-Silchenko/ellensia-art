@@ -86,13 +86,13 @@ function PriceItem({ title, list }) {
             <InputGroup className="mb-3">
               <div className="w-100">
                 <div className="mb-2">Комментарии</div>
-                <Form.Control className="w-100" style={{ minHeight: '7em' }} as="textarea" />
+                <Form.Control className="w-100" style={{ minHeight: '7em', borderColor: '#8ce6dd', boxShadow: 'none' }} as="textarea" />
               </div>
             </InputGroup>
 
             <Form.Group className="mb-3">
               <Form.Label>Ваш Email для связи</Form.Label>
-              <Form.Control type="email" placeholder="Введите email" required />
+              <Form.Control type="email" placeholder="Введите email" required style={{ borderColor: '#8ce6dd' }} />
             </Form.Group>
           </Form>      
         </Modal.Body>
