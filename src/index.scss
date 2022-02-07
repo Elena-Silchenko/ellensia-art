@@ -176,6 +176,11 @@ h1 {
     flex-grow: 1;
     width: 10em;
     max-width: 20em;
+    width: 15em; 
+    max-width: 25em; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       transform: translateY(-30px);
@@ -190,6 +195,19 @@ h1 {
       margin-bottom: 1em;
     }
 
+    .card-list-wrapper {
+      margin-bottom: 2em; 
+      text-align: left; 
+      flex-grow: 1;
+    }
+
+    ul {
+      list-style-type: none; 
+      padding-inline-start: .5em; 
+      margin-block-start: .5em; 
+      margin-block-end: .5em;
+    }
+
     li {
       display: flex;
       align-items: center;
@@ -197,6 +215,21 @@ h1 {
       img {
         margin-top: -.5em;
         margin-right: .5em;
+      }
+    }
+
+    .card-order-button {
+      background: #e1ccc6; 
+      color: #fff; 
+      font-size: 2em; 
+      padding: .1em 1em; 
+      font-weight: 300; 
+      outline: none; 
+      border: none;
+
+      &:hover {
+        background-color: #8ce6dd;
+        box-shadow: 0 5px 30px 0 rgb(0 0 0 / 20%);
       }
     }
   }

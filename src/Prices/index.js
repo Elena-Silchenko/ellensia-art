@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Button, Col, InputGroup, Modal, Row, Form } from 'react-bootstrap'
 import ImageCheck from './check.svg'
 
@@ -49,15 +49,15 @@ function PriceItem({ title, list }) {
   }
 
   return (
-    <div className="card" style={{ width: '15em', maxWidth: '25em', flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
+    <div className="card">
       <div className="card-icon"></div>
 
       <h5 style={{ marginBottom: '1em' }}>
         {title}
       </h5>
 
-      <div style={{ marginBottom: '2em', textAlign: 'left', flexGrow: '1' }}>
-        <ul style={{ listStyleType: 'none', paddingInlineStart: '.5em', marginBlockStart: '.5em', marginBlockEnd: '.5em' }}>
+      <div className="card-list-wrapper">
+        <ul>
           {
             list.map((item, index) => (
               <li key={index}>
@@ -70,7 +70,7 @@ function PriceItem({ title, list }) {
       </div>
 
       <div>
-        <a className="btn" style={{ background: '#e1ccc6', color: '#fff', fontSize: '2em', padding: '.1em 1em', fontWeight: '300', outline: 'none', border: 'none' }} onClick={handleShow}>
+        <a className="btn card-order-button" onClick={handleShow}>
           Заказать
         </a>
       </div>
@@ -117,7 +117,7 @@ function PriceItem({ title, list }) {
               <div className="w-100">
                 <div className="mb-2">Комментарии</div>
                 <Form.Control
-                  className="w-100"
+                  className="w-100 form-comment"
                   style={{ minHeight: '7em', borderColor: '#8ce6dd', boxShadow: 'none' }}
                   as="textarea"
                   value={form.comment}
