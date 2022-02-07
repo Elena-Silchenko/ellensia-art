@@ -1,6 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Col, InputGroup, Modal, Row, Form } from 'react-bootstrap'
 import ImageCheck from './check.svg'
+
+const DefaultForm = {
+  image: '',
+  comment: '',
+  email: ''
+}
 
 function PriceItem({ title, list }) {
   const [show, setShow] = useState(false)
@@ -8,14 +14,39 @@ function PriceItem({ title, list }) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [form, setForm] = useState(DefaultForm)
+
   const [preview, setPreview] = useState(null)
 
   function imageSelected(file) {
     if (!file) return
 
-    setSelectedFile(file)
+    setForm({ ...form, image: file })
     setPreview(URL.createObjectURL(file))
+  }
+  console.log(form.image)
+
+  async function sendForm() {
+    const data = new FormData()
+    data.append('style', title)
+    data.append('image', form.image)
+    data.append('comment', form.comment)
+    data.append('email', form.email)
+
+    window.grecaptcha.ready(async () => {
+      const token = await window.grecaptcha.execute('6Lcpsl8eAAAAALihkxQ5Kv8ZzsCQ6lzLD4E3HheK', { action: 'create_comment' })
+      data.append('token', token)
+
+      //const res = await fetch('https://api.ellensia-art.com/', {
+      const res = await fetch('https://vgq7ccy4i7.execute-api.eu-central-1.amazonaws.com', {
+        method: 'POST',
+        body: data
+      })
+
+      const body = await res.json()
+      
+      setShow(false)
+    })
   }
 
   return (
@@ -86,18 +117,31 @@ function PriceItem({ title, list }) {
             <InputGroup className="mb-3">
               <div className="w-100">
                 <div className="mb-2">Комментарии</div>
-                <Form.Control className="w-100" style={{ minHeight: '7em', borderColor: '#8ce6dd', boxShadow: 'none' }} as="textarea" />
+                <Form.Control
+                  className="w-100"
+                  style={{ minHeight: '7em', borderColor: '#8ce6dd', boxShadow: 'none' }}
+                  as="textarea" 
+                  value={form.comment}
+                  onChange={e => setForm({ ...form, comment: e.target.value })}
+                />
               </div>
             </InputGroup>
 
             <Form.Group className="mb-3">
               <Form.Label>Ваш Email для связи</Form.Label>
-              <Form.Control type="email" placeholder="Введите email" required style={{ borderColor: '#8ce6dd' }} />
+              <Form.Control
+                type="email"
+                placeholder="Введите email"
+                required
+                style={{ borderColor: '#8ce6dd' }}
+                value={form.email}
+                onChange={e => setForm({ ...form, email: e.target.value })}
+              />
             </Form.Group>
-          </Form>      
+          </Form>            
         </Modal.Body>
         <Modal.Footer>
-          <Button className="button-form" onClick={handleClose} >
+          <Button className="button-form" onClick={() => sendForm()} >
             Отправить
           </Button>
         </Modal.Footer>

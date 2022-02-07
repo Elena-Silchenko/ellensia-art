@@ -171,7 +171,7 @@ function App() {
 
           <div>
             <div>
-              <a href="mailto:elen.silchenko@gmail.com">elen.silchenko@gmail.com</a>
+              <a href="mailto:elen.silchenko@gmail.com">ellensia.art@gmail.com</a>
             </div>
           </div>
 
