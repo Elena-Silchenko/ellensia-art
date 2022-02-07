@@ -37,14 +37,13 @@ function PriceItem({ title, list }) {
       const token = await window.grecaptcha.execute('6Lcpsl8eAAAAALihkxQ5Kv8ZzsCQ6lzLD4E3HheK', { action: 'create_comment' })
       data.append('token', token)
 
-      //const res = await fetch('https://api.ellensia-art.com/', {
-      const res = await fetch('https://vgq7ccy4i7.execute-api.eu-central-1.amazonaws.com', {
+      const res = await fetch('https://api.ellensia-art.com/', {
         method: 'POST',
         body: data
       })
 
       const body = await res.json()
-      
+
       setShow(false)
     })
   }
@@ -120,7 +119,7 @@ function PriceItem({ title, list }) {
                 <Form.Control
                   className="w-100"
                   style={{ minHeight: '7em', borderColor: '#8ce6dd', boxShadow: 'none' }}
-                  as="textarea" 
+                  as="textarea"
                   value={form.comment}
                   onChange={e => setForm({ ...form, comment: e.target.value })}
                 />
@@ -138,7 +137,7 @@ function PriceItem({ title, list }) {
                 onChange={e => setForm({ ...form, email: e.target.value })}
               />
             </Form.Group>
-          </Form>            
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button className="button-form" onClick={() => sendForm()} >
@@ -160,7 +159,7 @@ export default function Prices() {
       </div>
 
       <div className="cards">
-        <PriceItem 
+        <PriceItem
           title="Графика черно-белая"
           list={[
             "карандашный черно-белый скетч",
@@ -173,7 +172,7 @@ export default function Prices() {
           ]}
         />
 
-        <PriceItem 
+        <PriceItem
           title="Графика цветная"
           list={[
             "карандашный черно-белый скетч",
@@ -187,7 +186,7 @@ export default function Prices() {
           ]}
         />
 
-        <PriceItem 
+        <PriceItem
           title="Живопись"
           list={[
             "карандашный черно-белый скетч",
