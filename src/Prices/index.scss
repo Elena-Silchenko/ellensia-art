@@ -1,0 +1,10 @@
+.form-control {
+  &.price-comment {
+    min-height: 7em;
+    box-shadow: none;
+  }
+
+  &.my-border-color {
+    border-color: #8ce6dd;
+  }
+}

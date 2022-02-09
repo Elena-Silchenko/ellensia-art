@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button, Col, InputGroup, Modal, Row, Form } from 'react-bootstrap'
+
+import './index.scss'
+
 import ImageCheck from './check.svg'
 
 import ImageSketch from './sketch.png'
 import ImageColor from './color.png'
 import ImagePainting from './painting.png'
-
 
 const DefaultForm = {
   image: '',
@@ -23,6 +25,14 @@ function PriceItem({ title, list, image }) {
 
   const [preview, setPreview] = useState(null)
 
+  const [validated, setValidated] = useState(false)
+
+  useEffect(() => {
+    if (show) {
+      setValidated(false)
+    }
+  }, [show])
+
   function imageSelected(file) {
     if (!file) return
 
@@ -30,7 +40,16 @@ function PriceItem({ title, list, image }) {
     setPreview(URL.createObjectURL(file))
   }
 
-  async function sendForm() {
+  async function sendForm(event) {
+    setValidated(true)
+
+    const htmlForm = event.currentTarget
+    if (htmlForm.checkValidity() === false) {
+      event.preventDefault()
+      event.stopPropagation()
+      return
+    }
+
     const data = new FormData()
     data.append('style', title)
     data.append('image', form.image)
@@ -82,11 +101,11 @@ function PriceItem({ title, list, image }) {
       </div>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
+        <Form noValidate validated={validated} onSubmit={(e) => sendForm(e)}>
+          <Modal.Header closeButton>
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
             <Row>
               <Col sm="6">
                 <div>
@@ -102,14 +121,23 @@ function PriceItem({ title, list, image }) {
               </Col>
 
               <Col sm="6">
-                <div className="mb-2">
-                  <label>
+                <Form.Group className="mb-2">
+                  <Form.Label>
                     <span className="button-form btn pointer" tabIndex="0" >
                       Загрузить фото
                     </span>
-                    <input type="file" accept="image/*" className="d-none" onChange={(e) => imageSelected(e.target.files[0])} />
-                  </label>
-                </div>
+                    <Form.Control
+                      required
+                      type="file"
+                      accept="image/*"
+                      className="d-none"
+                      onChange={(e) => imageSelected(e.target.files[0])}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Загрузите фото
+                    </Form.Control.Feedback>
+                  </Form.Label>
+                </Form.Group>
 
                 {preview && (
                   <div>
@@ -123,12 +151,15 @@ function PriceItem({ title, list, image }) {
               <div className="w-100">
                 <div className="mb-2">Комментарии</div>
                 <Form.Control
-                  className="w-100 form-comment"
-                  style={{ minHeight: '7em', borderColor: '#8ce6dd', boxShadow: 'none' }}
+                  required
+                  className="w-100 form-comment price-comment my-border-color"
                   as="textarea"
                   value={form.comment}
                   onChange={e => setForm({ ...form, comment: e.target.value })}
                 />
+                <Form.Control.Feedback type="invalid">
+                  Напишите пару слов, чтобы лучше понять заказ
+                </Form.Control.Feedback>
               </div>
             </InputGroup>
 
@@ -138,18 +169,21 @@ function PriceItem({ title, list, image }) {
                 type="email"
                 placeholder="Введите email"
                 required
-                style={{ borderColor: '#8ce6dd' }}
+                className="my-border-color"
                 value={form.email}
                 onChange={e => setForm({ ...form, email: e.target.value })}
               />
+              <Form.Control.Feedback type="invalid">
+                Оставьте свой email адрес, чтобы я Вам могла ответить
+              </Form.Control.Feedback>
             </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button className="button-form" onClick={() => sendForm()} >
-            Отправить
-          </Button>
-        </Modal.Footer>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button type="submit" className="button-form">
+              Отправить
+            </Button>
+          </Modal.Footer>
+        </Form>
       </Modal>
     </div>
   )
