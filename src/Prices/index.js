@@ -15,7 +15,7 @@ const DefaultForm = {
   email: ''
 }
 
-function PriceItem({ title, list, image }) {
+function PriceItem({ title, price, list, image }) {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -80,6 +80,8 @@ function PriceItem({ title, list, image }) {
       <h5 style={{ marginBottom: '1em' }}>
         {title}
       </h5>
+
+      <div style={{ fontSize: '1.7em' }}>{price}</div>
 
       <div className="card-list-wrapper">
         <ul>
@@ -201,6 +203,7 @@ export default function Prices() {
       <div className="cards">
         <PriceItem
           title="Графика черно-белая"
+          price="от &euro; 23"
           list={[
             "карандашный черно-белый скетч",
             "1 вариант",
@@ -215,6 +218,7 @@ export default function Prices() {
 
         <PriceItem
           title="Графика цветная"
+          price="от &euro; 27"
           list={[
             "карандашный черно-белый скетч",
             "2 варианта",
@@ -230,6 +234,7 @@ export default function Prices() {
 
         <PriceItem
           title="Живопись"
+          price="от &euro; 35"
           list={[
             "карандашный черно-белый скетч",
             "2 варианта",
