@@ -29,7 +29,6 @@ function PriceItem({ title, list, image }) {
     setForm({ ...form, image: file })
     setPreview(URL.createObjectURL(file))
   }
-  console.log(form.image)
 
   async function sendForm() {
     const data = new FormData()
