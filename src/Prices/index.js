@@ -2,13 +2,18 @@ import { useState } from 'react'
 import { Button, Col, InputGroup, Modal, Row, Form } from 'react-bootstrap'
 import ImageCheck from './check.svg'
 
+import ImageSketch from './sketch.png'
+import ImageColor from './color.png'
+import ImagePainting from './painting.png'
+
+
 const DefaultForm = {
   image: '',
   comment: '',
   email: ''
 }
 
-function PriceItem({ title, list }) {
+function PriceItem({ title, list, image }) {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -50,7 +55,9 @@ function PriceItem({ title, list }) {
 
   return (
     <div className="card">
-      <div className="card-icon"></div>
+      <div className="card-icon d-flex">
+        <img className="m-auto" src={image} style={{ maxWidth: '110px', maxHeight: '110px' }} />
+      </div>
 
       <h5 style={{ marginBottom: '1em' }}>
         {title}
@@ -170,6 +177,7 @@ export default function Prices() {
             "1 человек (за каждого следующего доплата)",
             "mock up за доплату"
           ]}
+          image={ImageSketch}
         />
 
         <PriceItem
@@ -184,6 +192,7 @@ export default function Prices() {
             "1 человек (за каждого следующего доплата)",
             "mock up за доплату"
           ]}
+          image={ImageColor}
         />
 
         <PriceItem
@@ -198,6 +207,7 @@ export default function Prices() {
             "1 человек (за каждого следующего доплата)",
             "mock up"
           ]}
+          image={ImagePainting}
         />
       </div>
     </div>
