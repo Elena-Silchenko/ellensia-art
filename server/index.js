@@ -60,7 +60,7 @@ exports.handler = async (event) => {
     }
 
     await sendMail([
-      `From: ${Buffer.from(body.email, 'binary').toString('utf-8')}`,
+      `From: ${Buffer.from(body.name, 'binary').toString('utf-8')} <${Buffer.from(body.email, 'binary').toString('utf-8')}>`,
       `Style: ${Buffer.from(body.style, 'binary').toString('utf-8')}`,
       `${Buffer.from(body.comment, 'binary').toString('utf-8')}`
     ].join("\n"), body.image)
