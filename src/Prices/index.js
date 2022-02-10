@@ -148,6 +148,30 @@ function PriceItem({ title, price, list, image }) {
                 )}
               </Col>
             </Row>
+            
+            <Row className="mb-3">
+              <Form.Group as={Col} md="4" controlId="validationCustom01">
+                <Form.Label>Имя</Form.Label>
+                <Form.Control
+                  className="form-name my-border-color"
+                  required
+                  type="text"
+                  placeholder="Имя"
+                />
+                <Form.Control.Feedback>Отлично!</Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group as={Col} md="4" controlId="validationCustom02">
+                <Form.Label>Фамилия</Form.Label>
+                <Form.Control
+                  className="form-name my-border-color"
+                  required
+                  type="text"
+                  placeholder="Фамилия"
+                />
+                <Form.Control.Feedback>Отлично!</Form.Control.Feedback>
+              </Form.Group>
+            </Row>
 
             <InputGroup className="mb-3">
               <div className="w-100">

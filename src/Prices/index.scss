@@ -1,4 +1,8 @@
 .form-control {
+  &.form-name {
+    box-shadow: none;
+  }
+
   &.price-comment {
     min-height: 7em;
     box-shadow: none;
