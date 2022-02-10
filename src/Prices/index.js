@@ -11,6 +11,7 @@ import ImagePainting from './painting.png'
 
 const DefaultForm = {
   image: '',
+  name: '',
   comment: '',
   email: ''
 }
@@ -53,9 +54,10 @@ function PriceItem({ title, price, list, image }) {
     const data = new FormData()
     data.append('style', title)
     data.append('image', form.image)
+    data.append('name', form.name)
     data.append('comment', form.comment)
     data.append('email', form.email)
-
+    
     window.grecaptcha.ready(async () => {
       const token = await window.grecaptcha.execute('6Lcpsl8eAAAAALihkxQ5Kv8ZzsCQ6lzLD4E3HheK', { action: 'create_comment' })
       data.append('token', token)
@@ -156,20 +158,13 @@ function PriceItem({ title, price, list, image }) {
                   className="form-name my-border-color"
                   required
                   type="text"
-                  placeholder="Имя"
+                  placeholder="Как к Вам обращаться"
+                  value={form.name}
+                  onChange={e => setForm({ ...form, name: e.target.value })}
                 />
-                <Form.Control.Feedback>Отлично!</Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group as={Col} md="4" controlId="validationCustom02">
-                <Form.Label>Фамилия</Form.Label>
-                <Form.Control
-                  className="form-name my-border-color"
-                  required
-                  type="text"
-                  placeholder="Фамилия"
-                />
-                <Form.Control.Feedback>Отлично!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Мне будет неудобно отвечать не зная Вашего имени
+                </Form.Control.Feedback>
               </Form.Group>
             </Row>
 
@@ -180,6 +175,7 @@ function PriceItem({ title, price, list, image }) {
                   required
                   className="w-100 form-comment price-comment my-border-color"
                   as="textarea"
+                  placeholder="Оставьте, пожалуйста, пожелания к заказу"
                   value={form.comment}
                   onChange={e => setForm({ ...form, comment: e.target.value })}
                 />
