@@ -22,7 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "aws s3 cp ./build s3://ellensia-art.com --recursive"
+    "deploy": "aws s3 cp ./build s3://ellensia-art.com --recursive",
+    "server:deploy": "(cd server ; rm server.zip ; zip -9r server.zip . ; aws lambda update-function-code --region eu-central-1 --function-name ellensia-art --zip-file fileb://./server.zip)"
   },
   "eslintConfig": {
     "extends": [
