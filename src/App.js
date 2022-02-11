@@ -8,31 +8,30 @@ import Benefints from './Benefits'
 import Portfolio from './Portfolio'
 import Prices from './Prices'
 import GoUp from './GoUp'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 
 function Header() {
   return (
     <>
-      <div className="d-flex flex-row-reverse flex-wrap">
+      <Navbar expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">
+            <img src={Logo} className="logo" alt="" />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="d-flex align-self-start mt-3">
+            <Nav className="ms-auto">
+              <Nav.Link href="#portfolio">Портфолио</Nav.Link>
+              <Nav.Link href="#price">Прайс</Nav.Link>
+              <Nav.Link href="#about">Обо мне</Nav.Link>
+              <Nav.Link href="#contact">Контакты</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <div className="d-flex flex-row-reverse flex-wrap advert-wrapper">
         <div className="menu flex-grow-1 position-relative">
-          <nav className="p-3">
-            <ul>
-              <li>
-                <a href="#portfolio" >Портфолио</a>
-              </li>
-
-              <li>
-                <a href="#price">Прайс</a>
-              </li>
-
-              <li>
-                <a href="#about">Обо мне</a>
-              </li>
-
-              <li>
-                <a href="#contact">Контакты</a>
-              </li>
-            </ul>
-          </nav>
 
           <img src={ImagePhoto} className="photo" alt="" />
           <img src={ImageLeaves} className="leaves" alt="" />
@@ -40,7 +39,6 @@ function Header() {
 
         <div className="advert flex-grow-1">
           <div>
-            <img src={Logo} className="logo" alt="" />
           </div>
 
           <div className="advert-description">
