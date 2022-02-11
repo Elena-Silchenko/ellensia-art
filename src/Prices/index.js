@@ -53,7 +53,7 @@ function PriceItem({ style, price, list, image, showOrderForm }) {
 
 export default function Prices() {
   const [showOrder, setShowOrder] = useState(false)
-  const [showAlert, setShowAlert] = useState(false)
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const [orderStyle, setOrderStyle] = useState(null)
 
   return (
@@ -116,13 +116,9 @@ export default function Prices() {
         />
       </div>
 
-      <OrderPopup style={orderStyle} show={showOrder} onClose={(formSent) => { setShowOrder(false); setShowAlert(formSent) }} />
+      <OrderPopup style={orderStyle} show={showOrder} onClose={(formSent) => { setShowOrder(false); setShowConfirmation(formSent) }} />
 
-      {showAlert && (
-        <div className="alert-wrapper">
-          <AlertDismissible onClose={() => setShowAlert(false)} />
-        </div>
-      )}
+      <Confirmation show={showConfirmation} onClose={() => setShowConfirmation(false)} />
     </div>
   )
 }
@@ -290,9 +286,9 @@ function OrderPopup({ style, show, onClose }) {
   )
 }
 
-function AlertDismissible({ onClose }) {
+function Confirmation({ show, onClose }) {
   return (
-    <Modal className="p-5" show={true}>
+    <Modal className="p-5" show={show}>
       <div className="p-4">
         <div className="d-flex">
           <Modal.Header className="m-auto mb-2 fs-5">Благодарю, что выбрали меня!</Modal.Header>
