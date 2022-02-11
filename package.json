@@ -4,9 +4,6 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.7.2",
     "dart-sass": "^1.25.0",
@@ -16,13 +13,11 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "^4.0.3",
     "sass": "^1.44.0",
-    "svg-url-loader": "^7.1.1",
-    "web-vitals": "^1.1.2"
+    "svg-url-loader": "^7.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "aws s3 cp ./build s3://ellensia-art.com --recursive",
+    "deploy": "react-scripts build ; aws s3 rm --recursive s3://ellensia-art.com ; aws s3 cp --recursive ./build s3://ellensia-art.com ; aws cloudfront create-invalidation --distribution-id E3QDGASF9J6AFZ --paths \"/*\"",
     "server:deploy": "(cd server ; rm server.zip ; zip -9r server.zip . ; aws lambda update-function-code --region eu-central-1 --function-name ellensia-art --zip-file fileb://./server.zip)"
   },
   "eslintConfig": {
