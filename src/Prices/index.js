@@ -57,7 +57,7 @@ export default function Prices() {
   const [orderStyle, setOrderStyle] = useState(null)
 
   return (
-    <div id="price">
+    <div id="price" className="prices">
       <div style={{ margin: '2em 0', padding: '0 1em' }}>
         <h1>
           Прайс
@@ -159,7 +159,7 @@ function OrderPopup({ style, show, onClose }) {
     data.append('name', form.name)
     data.append('comment', form.comment)
     data.append('email', form.email)
-    
+
     window.grecaptcha.ready(async () => {
       const token = await window.grecaptcha.execute('6Lcpsl8eAAAAALihkxQ5Kv8ZzsCQ6lzLD4E3HheK', { action: 'create_comment' })
       data.append('token', token)
@@ -176,7 +176,7 @@ function OrderPopup({ style, show, onClose }) {
   }
 
   return (
-    <Modal show={show} onHide={() => onClose(false)}>
+    <Modal show={show} onHide={() => onClose(false)} className="order-form">
       <Form noValidate validated={validated} onSubmit={(e) => sendForm(e)}>
         <Modal.Header closeButton>
           <Modal.Title>{style}</Modal.Title>
@@ -222,7 +222,7 @@ function OrderPopup({ style, show, onClose }) {
               )}
             </Col>
           </Row>
-          
+
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>Имя</Form.Label>
@@ -274,8 +274,8 @@ function OrderPopup({ style, show, onClose }) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             className="button-form"
           >
             Отправить
@@ -299,7 +299,7 @@ function Confirmation({ show, onClose }) {
         <p>
           Нет ничего прекраснее, чем передавать красоту через искусство. "Жизнь - коротка, искусство - вечно"
         </p>
-        
+
         <hr />
         <div className="d-flex justify-content-end">
           <Button style={{ background: '#8ce6dd', color: '#fff', outline: 'none', border: 'none' }} onClick={() => onClose()}>

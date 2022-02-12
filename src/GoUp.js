@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export default function GoUp() {
   const [visible, setVisible] = useState(false)
-  
+
   function updateVisible() {
     setVisible(window.scrollY > 100)
   }
@@ -17,9 +17,9 @@ export default function GoUp() {
   return (
     <>
       {visible && (
-        <div className="btn-go-up" onClick={() => window.scroll(0, 0)}>
+        <a href="#" className="btn-go-up">
           <i className="fas fa-angle-up" />
-        </div>
+        </a>
       )}
     </>
   )
