@@ -2,7 +2,7 @@ import ImagePhoto from './photo.png'
 import ImageLeaves from './leaves.png'
 import Logo from './logo.png'
 
-import MyPhoto from './photo_2020-05-10_17-44-59.jpg'
+import MyPhoto from './my-photo.jpg'
 
 import Benefints from './Benefits'
 import Portfolio from './Portfolio'
