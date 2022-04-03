@@ -164,7 +164,7 @@ function OrderPopup({ style, show, onClose }) {
       const token = await window.grecaptcha.execute('6Lcpsl8eAAAAALihkxQ5Kv8ZzsCQ6lzLD4E3HheK', { action: 'create_comment' })
       data.append('token', token)
 
-      const res = await fetch('https://api.ellensia-art.com/', {
+      const res = await fetch('https://n3fxpb0zpg.execute-api.eu-central-1.amazonaws.com/', {
         method: 'POST',
         body: data
       })

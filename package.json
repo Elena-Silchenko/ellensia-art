@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "react-scripts build ; aws s3 rm --recursive s3://ellensia-art ; aws s3 cp --recursive ./build s3://ellensia-art ; aws cloudfront create-invalidation --distribution-id E32M5ZJXJC10J2 --paths \"/*\"",
+    "build": "react-scripts build",
     "server:deploy": "(cd server ; rm server.zip ; zip -9r server.zip . ; aws lambda update-function-code --region eu-central-1 --function-name ellensia-art --zip-file fileb://./server.zip)"
   },
   "eslintConfig": {
